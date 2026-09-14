@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMVVM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Button Content="Ladda katter" Command="{Binding LoadCatsCommand}" />
+
+            <ListBox ItemsSource="{Binding Cats}"
+             	SelectedItem="{Binding SelectedCat}" DisplayMemberPath="Name"/>
+
+            <TextBlock Text="{Binding SelectedCat.Name}" />
+            <TextBlock Text="{Binding SelectedCat.Age}" />
+            <TextBlock Text="{Binding SelectedCat.Color}" />
+        </StackPanel>
+
+    </Grid>
+</Window>
