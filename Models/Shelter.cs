@@ -1,23 +1,19 @@
 ﻿using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace WpfMVVM.Models
-{
-    [Table("shelters")]
-    public class Shelter : BaseModel
-    {
-        [PrimaryKey("id")]
-        public long Id { get; set; }
+namespace WpfMVVM.Models;
 
-        [Column("name")]
-        public string Name { get; set; }
+[Table("shelters")]
+public sealed class Shelter : BaseModel{
+  
+  [PrimaryKey("id", false)]
+  public long Id { get; set; }
 
-        [Column("city")]
-        public string City { get; set; }
+  [Column("name")]
+  public string Name { get; set; } = string.Empty;
 
-    }
+  [Column("city")]
+  public string City { get; set; } = string.Empty;
 
+  public override string ToString() => $"{Name} — {City}";
 }
